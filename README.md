@@ -1,5 +1,3 @@
-**Project Name:** PHPluse 
-
 ### Overview
 **PHPluse** is a multi-purpose application designed as a centralized dashboard for managing applications and data efficiently. It provides a unified platform to monitor and analyze performance, manage users, control settings, and organize various types of data. 
 
