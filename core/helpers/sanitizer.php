@@ -21,6 +21,13 @@
 		return preg_replace('/[^-0-9]/', '', $value);
 	}
 
+	// Sanitize name (accept letters only from any language)
+	function sz_name ($value)
+	{
+		$value = trim($value);
+		return (string) preg_replace('/[^\p{L}]+/u', '', $value);
+	}		
+
 	// Sanitize alphabetic characters
 	function sz_alpha ($value)
 	{

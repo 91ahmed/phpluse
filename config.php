@@ -1,8 +1,8 @@
 <?php
 	
 	// Application
-	define('DOMAIN', 'http://localhost/app/');
-	define('DIR', 'app');
+	define('DOMAIN', 'http://localhost/PHPluse/');
+	define('DIR', 'PHPluse');
 	define('ROOT', __DIR__);
 	define('DS', DIRECTORY_SEPARATOR);
 	define('LANGUAGE', 'en');

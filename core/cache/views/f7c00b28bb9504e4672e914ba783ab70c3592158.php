@@ -1,18 +1,17 @@
-@extends('layout.master')
-@section('title', 'Create Admin')
+<?php $__env->startSection('title', 'Create Admin'); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-24">
 	<h6 class="fw-semibold mb-0">Create Admin</h6>
 	<ul class="d-flex align-items-center gap-2">
 		<li class="fw-medium">
-			<a href="{{ url('dashboard') }}" class="d-flex align-items-center gap-1 hover-text-primary">
+			<a href="<?php echo e(url('dashboard')); ?>" class="d-flex align-items-center gap-1 hover-text-primary">
 				Dashboard /
 			</a>
 		</li>
 		<li class="fw-medium">
-			<a href="{{ url('dashboard/admin/show') }}" class="d-flex align-items-center gap-1 hover-text-primary">
+			<a href="<?php echo e(url('dashboard/admin/show')); ?>" class="d-flex align-items-center gap-1 hover-text-primary">
 				Admins /
 			</a>
 		</li>
@@ -161,9 +160,9 @@
 		                        </span>
 		                        <select class="form-control" name="gender">
 		                        	<option selected value="1">default: male</option>
-		                        	@foreach($all_genders as $gender)
-		                        	<option value="{{ $gender->gender_id }}">{{ strtolower($gender->gender_name) }}</option>
-		                        	@endforeach
+		                        	<?php $__currentLoopData = $all_genders; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $gender): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+		                        	<option value="<?php echo e($gender->gender_id); ?>"><?php echo e(strtolower($gender->gender_name)); ?></option>
+		                        	<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 		                        </select>
 		                    </div>
 		                </div>		                
@@ -175,9 +174,9 @@
 		                        </span>
 		                        <select class="form-control" name="privacy">
 		                        	<option selected value="1">default: public</option>
-		                        	@foreach($all_privacy as $privacy)
-		                        	<option value="{{ $privacy->account_privacy_id }}">{{ strtolower($privacy->account_privacy_name) }}</option>
-		                        	@endforeach
+		                        	<?php $__currentLoopData = $all_privacy; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $privacy): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+		                        	<option value="<?php echo e($privacy->account_privacy_id); ?>"><?php echo e(strtolower($privacy->account_privacy_name)); ?></option>
+		                        	<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 		                        </select>
 		                    </div>
 		                </div>		                
@@ -188,9 +187,9 @@
 				                    <div class="icon-field">
 				                        <select class="form-control" name="day">
 				                        	<option selected>Day</option>
-				                        	@for($d = 1; $d <= 31; $d++)
-				                        	<option value="{{ $d }}">{{ $d }}</option>
-				                        	@endfor
+				                        	<?php for($d = 1; $d <= 31; $d++): ?>
+				                        	<option value="<?php echo e($d); ?>"><?php echo e($d); ?></option>
+				                        	<?php endfor; ?>
 				                        </select>
 				                    </div>	
 		                    	</div>		                    	
@@ -198,9 +197,9 @@
 				                    <div class="icon-field">
 				                        <select class="form-control" name="month">
 				                        	<option selected>Month</option>
-				                        	@for($m = 1; $m <= 12; $m++)
-				                        	<option value="{{ $m }}">{{ $m }}</option>
-				                        	@endfor
+				                        	<?php for($m = 1; $m <= 12; $m++): ?>
+				                        	<option value="<?php echo e($m); ?>"><?php echo e($m); ?></option>
+				                        	<?php endfor; ?>
 				                        </select>
 				                    </div>	
 		                    	</div>		                    	
@@ -208,9 +207,9 @@
 				                    <div class="icon-field">
 				                        <select class="form-control" name="year">
 				                        	<option selected>Year</option>
-				                        	@for($y = date('Y')-100; $y <= date('Y'); $y++)
-				                        	<option value="{{ $y }}">{{ $y }}</option>
-				                        	@endfor
+				                        	<?php for($y = date('Y')-100; $y <= date('Y'); $y++): ?>
+				                        	<option value="<?php echo e($y); ?>"><?php echo e($y); ?></option>
+				                        	<?php endfor; ?>
 				                        </select>
 				                    </div>	
 		                    	</div>
@@ -233,4 +232,5 @@
 	</div>
 </form>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
