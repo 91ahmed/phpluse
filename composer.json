@@ -1,6 +1,7 @@
 {
     "require": {
-        "jenssegers/blade": "^1.4"
+        "jenssegers/blade": "^1.4",
+        "91ahmed/secure-cogs": "^1.0"
     },
     "config": {
         "allow-plugins": {

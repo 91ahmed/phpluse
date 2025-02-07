@@ -18,6 +18,7 @@ class ComposerStaticInitecd42577a7e97a606594dcc139c5e746
             'Symfony\\Component\\Translation\\' => 30,
             'Symfony\\Component\\Finder\\' => 25,
             'Symfony\\Component\\Debug\\' => 24,
+            'SecureCogs\\' => 11,
         ),
         'P' => 
         array (
@@ -60,6 +61,10 @@ class ComposerStaticInitecd42577a7e97a606594dcc139c5e746
         'Symfony\\Component\\Debug\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/debug',
+        ),
+        'SecureCogs\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/91ahmed/secure-cogs/src',
         ),
         'Psr\\SimpleCache\\' => 
         array (

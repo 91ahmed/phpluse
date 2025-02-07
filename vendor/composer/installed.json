@@ -1,6 +1,46 @@
 {
     "packages": [
         {
+            "name": "91ahmed/secure-cogs",
+            "version": "v1.0",
+            "version_normalized": "1.0.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/91ahmed/SecureCogs.git",
+                "reference": "dff7a164a1cd2f0e4200b4ca20e6956e686d6451"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/91ahmed/SecureCogs/zipball/dff7a164a1cd2f0e4200b4ca20e6956e686d6451",
+                "reference": "dff7a164a1cd2f0e4200b4ca20e6956e686d6451",
+                "shasum": ""
+            },
+            "time": "2025-01-06T21:50:55+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "SecureCogs\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "91ahmed",
+                    "email": "ahmedh12491@gmail.com"
+                }
+            ],
+            "description": "SecureCogs is a PHP data storage package that allows you to store data in an encrypted key-value pair format, providing various methods to simplify data accessibility and maintainability.",
+            "support": {
+                "issues": "https://github.com/91ahmed/SecureCogs/issues",
+                "source": "https://github.com/91ahmed/SecureCogs/tree/v1.0"
+            },
+            "install-path": "../91ahmed/secure-cogs"
+        },
+        {
             "name": "doctrine/inflector",
             "version": "v1.2.0",
             "version_normalized": "1.2.0.0",
