@@ -3,7 +3,8 @@
 
 
 ### **Key Features**  
-- **Application Management** – Easily add, update, and remove applications through an intuitive interface.  
+- **Application Management**
+Easily add, update, and remove applications through an intuitive interface.  
 - **Data Management** – Store and organize data flexibly with support for multiple database types.  
 - **Analytics & Reports** – Generate comprehensive statistics on performance, users, and data.  
 - **User & Role Management** – Advanced access control system with role-based permissions.  
