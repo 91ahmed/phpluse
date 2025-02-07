@@ -89,7 +89,7 @@
 		        <div class="card-body">
 		            <div class="row gy-3">
 		                <div class="col-12">
-		                    <label class="form-label">First Name</label>
+		                    <label class="form-label">First Name <span>*</span></label>
 		                    <div class="icon-field">
 		                        <span class="icon">
 		                            <iconify-icon icon="f7:person"></iconify-icon>
@@ -98,7 +98,7 @@
 		                    </div>
 		                </div>
 		                <div class="col-12">
-		                    <label class="form-label">Last Name</label>
+		                    <label class="form-label">Last Name <span>*</span></label>
 		                    <div class="icon-field">
 		                        <span class="icon">
 		                            <iconify-icon icon="f7:person"></iconify-icon>
@@ -107,7 +107,7 @@
 		                    </div>
 		                </div>
 		                <div class="col-12">
-		                    <label class="form-label">Email</label>
+		                    <label class="form-label">Email <span>*</span></label>
 		                    <div class="icon-field">
 		                        <span class="icon">
 		                            <iconify-icon icon="mage:email"></iconify-icon>
@@ -125,7 +125,7 @@
 		                    </div>
 		                </div>
 		                <div class="col-12">
-		                    <label class="form-label">Password</label>
+		                    <label class="form-label">Password <span>*</span></label>
 		                    <div class="icon-field">
 		                        <span class="icon">
 		                            <iconify-icon icon="solar:lock-password-outline"></iconify-icon>
@@ -134,7 +134,7 @@
 		                    </div>
 		                </div>		                
 		                <div class="col-12">
-		                    <label class="form-label">Confirm Password</label>
+		                    <label class="form-label">Confirm Password <span>*</span></label>
 		                    <div class="icon-field">
 		                        <span class="icon">
 		                            <iconify-icon icon="solar:lock-password-outline"></iconify-icon>
@@ -154,7 +154,7 @@
 		        <div class="card-body">
 		            <div class="row gy-3">
 		                <div class="col-12">
-		                    <label class="form-label">Gender</label>
+		                    <label class="form-label">Gender <span>*</span></label>
 		                    <div class="icon-field">
 		                        <span class="icon">
 		                            <iconify-icon icon="f7:heart"></iconify-icon>
@@ -168,7 +168,7 @@
 		                    </div>
 		                </div>		                
 		                <div class="col-12">
-		                    <label class="form-label">Account Privacy</label>
+		                    <label class="form-label">Account Privacy <span>*</span></label>
 		                    <div class="icon-field">
 		                        <span class="icon">
 		                            <iconify-icon icon="f7:eyeglasses"></iconify-icon>
@@ -182,7 +182,7 @@
 		                    </div>
 		                </div>		                
 		                <div class="col-12">
-		                    <label class="form-label">Birth Date</label>
+		                    <label class="form-label">Birth Date <span>*</span></label>
 		                    <div class="row">
 		                    	<div class="col-4">
 				                    <div class="icon-field">

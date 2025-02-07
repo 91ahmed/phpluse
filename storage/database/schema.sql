@@ -67,8 +67,8 @@ CREATE TABLE IF NOT EXISTS `admins`
 	`admin_email` VARCHAR(60) NOT NULL UNIQUE,
 	`admin_password` CHAR(60) NOT NULL UNIQUE,
 	`admin_phone` VARCHAR(20) NULL UNIQUE,
-	`admin_photo` VARCHAR(100) NOT NULL DEFAULT 'default',
-	`admin_cover` VARCHAR(100) NOT NULL DEFAULT 'default',
+	`admin_photo` VARCHAR(100) NULL,
+	`admin_cover` VARCHAR(100) NULL,
 	`admin_gender` TINYINT(1) UNSIGNED NOT NULL DEFAULT 1,
 
 	`account_status` TINYINT(2) UNSIGNED NOT NULL DEFAULT 1,
