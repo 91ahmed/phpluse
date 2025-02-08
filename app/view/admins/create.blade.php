@@ -82,7 +82,7 @@
 		        	</div>
 		        </div>
 			</div>
-		    <div class="card mb-3">
+		    <div class="card">
 		        <div class="card-header">
 		            <h5 class="card-title mb-0">Personal Info.</h5>
 		        </div>
@@ -121,7 +121,7 @@
 		                        <span class="icon">
 		                            <iconify-icon icon="solar:phone-calling-linear"></iconify-icon>
 		                        </span>
-		                        <input type="text" name="phone" class="form-control" placeholder="+1 (555) 000-0000">
+		                        <input type="text" name="phone" class="form-control" placeholder="0000000000">
 		                    </div>
 		                </div>
 		                <div class="col-12">
@@ -173,7 +173,7 @@
 		                        <span class="icon">
 		                            <iconify-icon icon="f7:eyeglasses"></iconify-icon>
 		                        </span>
-		                        <select class="form-control" name="privacy">
+		                        <select class="form-control" name="account_privacy">
 		                        	<option selected value="1">default: public</option>
 		                        	@foreach($all_privacy as $privacy)
 		                        	<option value="{{ $privacy->account_privacy_id }}">{{ strtolower($privacy->account_privacy_name) }}</option>
@@ -186,7 +186,7 @@
 		                    <div class="row">
 		                    	<div class="col-4">
 				                    <div class="icon-field">
-				                        <select class="form-control" name="day">
+				                        <select class="form-control" name="birth_day">
 				                        	<option selected>Day</option>
 				                        	@for($d = 1; $d <= 31; $d++)
 				                        	<option value="{{ $d }}">{{ $d }}</option>
@@ -196,7 +196,7 @@
 		                    	</div>		                    	
 		                    	<div class="col-4">
 				                    <div class="icon-field">
-				                        <select class="form-control" name="month">
+				                        <select class="form-control" name="birth_month">
 				                        	<option selected>Month</option>
 				                        	@for($m = 1; $m <= 12; $m++)
 				                        	<option value="{{ $m }}">{{ $m }}</option>
@@ -206,7 +206,7 @@
 		                    	</div>		                    	
 		                    	<div class="col-4">
 				                    <div class="icon-field">
-				                        <select class="form-control" name="year">
+				                        <select class="form-control" name="birth_year">
 				                        	<option selected>Year</option>
 				                        	@for($y = date('Y')-100; $y <= date('Y'); $y++)
 				                        	<option value="{{ $y }}">{{ $y }}</option>
@@ -223,8 +223,8 @@
 		        <div class="card-body">
 		            <div class="row gy-3">
 		                <div class="col-12">
-		                	<button type="submit" class="btn btn-primary" name="register">Create Account</button>
-		                	<button type="reset" class="btn btn-light">Reset</button>
+		                	<button type="submit" class="btn btn-sm btn-primary" name="register">Create Account</button>
+		                	<button type="reset" class="btn btn-sm btn-light">Reset</button>
 		                </div>
 		            </div>
 		        </div> 	

@@ -40,7 +40,11 @@
 	ini_set ('default_charset', 'UTF-8');
 
 	/** [ Memory limit ] **/
-	ini_set ('memory_limit', '128M');
+	ini_set ('memory_limit', '500M');
+
+	/** [ File Upload ] **/
+	ini_set('upload_max_filesize', '500M');
+	ini_set('post_max_size', '500M');
 
 	/** [ URL include ] **/
 	ini_set ('allow_url_include', 0);
