@@ -46,9 +46,6 @@
 			$data->file('photo')->file_extension(['png','jpg','jpeg'])->file_size(2099999);
 			$data->file('cover')->file_extension(['png','jpg','jpeg'])->file_size(2099999);
 
-			$response = new Response();
-			echo $response->status(200)->sendJson($data->errors());
-
 			if ($data->is_valid())
 			{
 				// Sanitization
@@ -64,39 +61,51 @@
 				$confirm   = empty($_REQUEST['confirm-password']) ? null : Request::post('confirm-password');
 				$gender    = in_array($_REQUEST['gender'], [1,2]) ? intval(sz_digits(Request::post('gender'))): 1;
 				$privacy   = in_array($_REQUEST['account_privacy'], [1,2]) ? intval(sz_digits(Request::post('account_privacy'))): 1;
-				$day       = empty($_REQUEST['birth_day']) || $_REQUEST['day'] < 1 || $_REQUEST['day'] > 31 ? null : intval(sz_digits(Request::post('day')));
-				$month     = empty($_REQUEST['birth_month']) || $_REQUEST['month'] < 1 || $_REQUEST['month'] > 12 ? null : intval(sz_digits(Request::post('month')));
-				$year      = empty($_REQUEST['birth_year']) || $_REQUEST['year'] < date('Y')-100 || $_REQUEST['year'] > date('Y') ? null : intval(sz_digits(Request::post('year')));
+				$day       = empty($_REQUEST['birth_day']) || $_REQUEST['birth_day'] < 1 || $_REQUEST['birth_day'] > 31 ? null : intval(sz_digits(Request::post('birth_day')));
+				$month     = empty($_REQUEST['birth_month']) || $_REQUEST['birth_month'] < 1 || $_REQUEST['birth_month'] > 12 ? null : intval(sz_digits(Request::post('birth_month')));
+				$year      = empty($_REQUEST['birth_year']) || $_REQUEST['birth_year'] < date('Y')-100 || $_REQUEST['birth_year'] > date('Y') ? null : intval(sz_digits(Request::post('birth_year')));
 
-				// Insert into database
-				$admins->insert([
-					'admin_id' => $id,
-					'admin_first_name' => $firstname,
-					'admin_last_name' => $lastname,
-					'admin_user_name' => $username,
-					'admin_email' => $email,
-					'admin_password' => $password,
-					'admin_phone' => $phone,
-					'admin_gender' => $gender,
+				try {
+					// Insert into database
+					$admins->insert([
+						'admin_id' => $id,
+						'admin_first_name' => $firstname,
+						'admin_last_name' => $lastname,
+						'admin_user_name' => $username,
+						'admin_email' => $email,
+						'admin_password' => $password,
+						'admin_phone' => $phone,
+						'admin_gender' => $gender,
 
-					'admin_photo' => $photo,
-					'admin_cover' => $cover,
+						'admin_photo' => $photo,
+						'admin_cover' => $cover,
 
-					'account_privacy' => $privacy,
-					'public_code' => gn_char(15),
-					'token' => gn_char(128),
+						'account_privacy' => $privacy,
+						'public_code' => gn_char(15),
+						'token' => gn_char(128),
 
-					'admin_birth_day' => $day,
-					'admin_birth_month' => $month,
-					'admin_birth_year' => $year,
+						'admin_birth_day' => $day,
+						'admin_birth_month' => $month,
+						'admin_birth_year' => $year,
 
-					'admin_created_day' => date('d'),
-					'admin_created_month' => date('m'),
-					'admin_created_year' => date('Y'),
-				])->execute();
+						'admin_created_day' => date('d'),
+						'admin_created_month' => date('m'),
+						'admin_created_year' => date('Y'),
+					])->execute();	
+				} catch (\Exception $e) {
+					$response = new Response();
+					//echo $response->status(500)->sendJson(['Error: ' => $e->getMessage()]);
+					echo $response->status(500)->sendJson(['Error: ' => 'Unable to create a new admin account due to a database issue. Possible reasons include - Duplicate entry or Invalid value']);
+					return false;
+				}
 
-				// redirect('dashboard/admin/create');
-				// exit();
+				$response = new Response();
+				echo $response->status(200)->sendJson(['You have successfully' => ' created a new admin account.']);
+			}
+			else
+			{
+				$response = new Response();
+				echo $response->status(500)->sendJson($data->errors());			
 			}			
 		}
 	}

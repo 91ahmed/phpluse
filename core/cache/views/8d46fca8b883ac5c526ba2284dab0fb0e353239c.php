@@ -27,6 +27,8 @@
 		<link rel="stylesheet" href="<?php echo e(assets('assets/css/lib/magnific-popup.css')); ?>">
 		<!-- Slick Slider css -->
 		<link rel="stylesheet" href="<?php echo e(assets('assets/css/lib/slick.css')); ?>">
+		<!-- Notyf -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
 		<!-- main css -->
 		<link rel="stylesheet" href="<?php echo e(assets('assets/css/style.css')); ?>">
 	</head>
@@ -76,6 +78,8 @@
 		<!-- main js -->
 		<script src="<?php echo e(assets('assets/js/app.js')); ?>"></script>
 		<script src="<?php echo e(assets('assets/js/homeTwoChart.js')); ?>"></script>
+		<!-- Notyf -->
+		<script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
 		<script src="<?php echo e(assets('assets/js/main.js')); ?>"></script>
 	</body>
 </html>

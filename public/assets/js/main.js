@@ -24,12 +24,22 @@ $(document).ready(function(){
             {
                 200: function (response) {
                     //$('.layout-bg').fadeOut(300)
-                    $('.content').html(response)
 
                     for (data in response) 
                     {
-                        console.log(data+' '+response[data])
+                        let notyf = new Notyf({
+                            duration: 5000,
+                            position: {
+                                x: 'center',
+                                y: 'bottom',
+                            }
+                        })
+
+                        notyf.success(data.replace('_', ' ')+' '+response[data]+'.')
+
+                        break
                     }
+
                     /*
                     new RetroNotify({
                         contentHeader: 'Done!',
@@ -60,8 +70,22 @@ $(document).ready(function(){
                 },
                 500: function (response) {
                     //$('.layout-bg').fadeOut(300)
-                    $('.content').html(response.responseJSON.errorMsg)
-                    alert(3)
+
+                    for (data in response.responseJSON) 
+                    {
+                        let notyf = new Notyf({
+                            duration: 5000,
+                            position: {
+                                x: 'center',
+                                y: 'bottom',
+                            }
+                        })
+
+                        notyf.error(data.replace('_', ' ')+' '+response.responseJSON[data]+'.')
+
+                        break
+                    }
+
                     /*
                     new RetroNotify({
                         contentHeader: response.responseJSON.header,
