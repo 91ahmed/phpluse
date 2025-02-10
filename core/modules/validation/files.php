@@ -113,9 +113,6 @@
 			if (isset($this->file['size']) && !empty($this->file['size']))
 			{
 				foreach ($this->file['size'] as $si) {
-					var_dump($si);
-					var_dump($size);
-					var_dump($this->human_readable_size($size));
 					if ($si > $size) {
 						$this->error[$this->input] = $this->message['file_size'].' '.$this->human_readable_size($size);
 					}

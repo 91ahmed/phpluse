@@ -76,5 +76,6 @@
 		<!-- main js -->
 		<script src="<?php echo e(assets('assets/js/app.js')); ?>"></script>
 		<script src="<?php echo e(assets('assets/js/homeTwoChart.js')); ?>"></script>
+		<script src="<?php echo e(assets('assets/js/main.js')); ?>"></script>
 	</body>
 </html>

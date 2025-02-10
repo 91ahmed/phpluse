@@ -20,7 +20,9 @@
 	</ul>
 </div>
 
-<form action="<?= url('dashboard/admin/create') ?>" method="POST" style="width: 100%;" enctype="multipart/form-data">
+<div class="content"></div>
+
+<form action="<?= url('dashboard/admin/create/request') ?>" method="POST" style="width: 100%;" class="form-request" enctype="multipart/form-data">
 	<div class="row gy-4">
 		<div class="col-md-6">
 		    <div class="card mb-3">
@@ -223,8 +225,17 @@
 		        <div class="card-body">
 		            <div class="row gy-3">
 		                <div class="col-12">
-		                	<button type="submit" class="btn btn-sm btn-primary" name="register">Create Account</button>
-		                	<button type="reset" class="btn btn-sm btn-light">Reset</button>
+		                	<button type="submit" class="btn btn-sm btn-primary" name="submit">Create Account</button>
+		                	<button type="reset" class="btn btn-sm btn-light" id="btn-reset" 
+		                			data-photo="<?= assets('assets/images/avatar/default-photo.png') ?>" 
+		                			data-cover="<?= assets('assets/images/avatar/default-cover.jpg') ?>">Reset</button>
+		                	<script>
+		                		let resetBtn = document.getElementById('btn-reset')
+		                		resetBtn.addEventListener('click', function () {
+		                			document.getElementsByClassName('profile-photo')[0].style.backgroundImage = 'url('+resetBtn.getAttribute("data-photo")+')'
+		                			document.getElementsByClassName('profile-cover')[0].style.backgroundImage = 'url('+resetBtn.getAttribute("data-cover")+')'
+		                		})
+		                	</script>
 		                </div>
 		            </div>
 		        </div> 	

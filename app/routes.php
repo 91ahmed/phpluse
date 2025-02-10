@@ -9,7 +9,7 @@
 
 	// Admins
 	$route->middleware(['app'])->get('/dashboard/admin/create', 'AdminsController@create');
-	$route->middleware(['app'])->post('/dashboard/admin/create', 'AdminsController@create');
+	$route->middleware(['app'])->post('/dashboard/admin/create/request', 'AdminsController@createRequest');
 
 	// $route->get('{lang}/home', function () {
 	// 	echo 'Lang';
