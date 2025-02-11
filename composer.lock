@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "96a994bd80cc3188857e3c7ec009eb7e",
+    "content-hash": "166abfc7df59e2ecffca70398c20206f",
     "packages": [
         {
             "name": "91ahmed/secure-cogs",
@@ -628,6 +628,43 @@
                 }
             ],
             "time": "2019-10-14T05:51:36+00:00"
+        },
+        {
+            "name": "phpuploader/phpfileuploader",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/91ahmed/PHPFileUploader.git",
+                "reference": "7d6f1ebbe45afd8abe262f973287b17bc9d23103"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/91ahmed/PHPFileUploader/zipball/7d6f1ebbe45afd8abe262f973287b17bc9d23103",
+                "reference": "7d6f1ebbe45afd8abe262f973287b17bc9d23103",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpFileUploader\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "ahmedhassan",
+                    "email": "ahmedh12491@gmail.com"
+                }
+            ],
+            "description": "Verify and upload files with php.",
+            "support": {
+                "issues": "https://github.com/91ahmed/PHPFileUploader/issues",
+                "source": "https://github.com/91ahmed/PHPFileUploader/tree/v1.0.0"
+            },
+            "time": "2023-02-03T03:48:06+00:00"
         },
         {
             "name": "psr/container",

@@ -657,6 +657,46 @@
             "install-path": "../nesbot/carbon"
         },
         {
+            "name": "phpuploader/phpfileuploader",
+            "version": "v1.0.0",
+            "version_normalized": "1.0.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/91ahmed/PHPFileUploader.git",
+                "reference": "7d6f1ebbe45afd8abe262f973287b17bc9d23103"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/91ahmed/PHPFileUploader/zipball/7d6f1ebbe45afd8abe262f973287b17bc9d23103",
+                "reference": "7d6f1ebbe45afd8abe262f973287b17bc9d23103",
+                "shasum": ""
+            },
+            "time": "2023-02-03T03:48:06+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "PhpFileUploader\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "ahmedhassan",
+                    "email": "ahmedh12491@gmail.com"
+                }
+            ],
+            "description": "Verify and upload files with php.",
+            "support": {
+                "issues": "https://github.com/91ahmed/PHPFileUploader/issues",
+                "source": "https://github.com/91ahmed/PHPFileUploader/tree/v1.0.0"
+            },
+            "install-path": "../phpuploader/phpfileuploader"
+        },
+        {
             "name": "psr/container",
             "version": "1.0.0",
             "version_normalized": "1.0.0.0",

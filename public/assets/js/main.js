@@ -39,34 +39,6 @@ $(document).ready(function(){
 
                         break
                     }
-
-                    /*
-                    new RetroNotify({
-                        contentHeader: 'Done!',
-                        contentText: response,
-                        style: 'sky',
-                        animate: 'slideTopRight'
-                    })
-                    */
-                    // Snackbar.show({
-                    //     text: `${response}`,
-                    //     width: 'auto',
-                    //     //pos: 'top-center',
-                    //     duration: 10000,
-                    //     actionTextColor: '#fff',
-                    //     backgroundColor: '#78cc41',//'#4361ee',
-                    //     showAction: false
-                    // }); 
-
-                    // // Redirect
-                    // setTimeout(function(){
-                    //     let redirect = $('.form-ajax').attr('data-redirect')
-                    //     if (redirect == '0') {
-
-                    //     } else {
-                    //        window.location.href = redirect
-                    //     }
-                    // }, 2000)
                 },
                 500: function (response) {
                     //$('.layout-bg').fadeOut(300)
@@ -85,30 +57,6 @@ $(document).ready(function(){
 
                         break
                     }
-
-                    /*
-                    new RetroNotify({
-                        contentHeader: response.responseJSON.header,
-                        contentText: response.responseJSON.errorMsg,
-                        
-                        //background: '#D35050',
-                        //color: '#FFF'
-                        
-                        style: 'yellow',
-                    })
-                    */
-
-                    // Snackbar.show({
-                    //     text: `${response.responseJSON.errorMsg}`,
-                    //     width: 'auto',
-                    //     //pos: 'top-center',
-                    //     duration: 10000,
-                    //     //actionTextColor: '#fff',
-                    //     backgroundColor: '#1f2232',
-                    //     showAction: false
-                    // }); 
-
-                    // console.log(response)
                 }
             },
             success: function(data)
@@ -121,4 +69,26 @@ $(document).ready(function(){
 		return false
 	})
 
+})
+
+
+
+
+
+/** Change logo by mood **/
+const changeThemeLogo = () => 
+{
+    let mood = document.getElementById('theme-mood')
+    let currentMood = mood.getAttribute('aria-label')
+
+    if (currentMood == 'light') {
+        document.getElementsByClassName('logo-icon')[0].setAttribute('src', document.getElementsByClassName('logo-icon')[0].getAttribute('data-dark'))
+    } else if (currentMood == 'dark') {
+        document.getElementsByClassName('logo-icon')[0].setAttribute('src', document.getElementsByClassName('logo-icon')[0].getAttribute('data-light'))
+    }
+}
+changeThemeLogo()
+
+document.getElementById('theme-mood').addEventListener('click', function (){
+    changeThemeLogo()
 })

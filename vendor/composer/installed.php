@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '605e3d7f30a345e90affa36b433fd1a834b9f6ae',
+        'reference' => '09352b48cd4c05773511a79072f1fc430742ff05',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -25,7 +25,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '605e3d7f30a345e90affa36b433fd1a834b9f6ae',
+            'reference' => '09352b48cd4c05773511a79072f1fc430742ff05',
             'dev_requirement' => false,
         ),
         'doctrine/inflector' => array(
@@ -116,6 +116,15 @@
             'install_path' => __DIR__ . '/../nesbot/carbon',
             'aliases' => array(),
             'reference' => '4be0c005164249208ce1b5ca633cd57bdd42ff33',
+            'dev_requirement' => false,
+        ),
+        'phpuploader/phpfileuploader' => array(
+            'pretty_version' => 'v1.0.0',
+            'version' => '1.0.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../phpuploader/phpfileuploader',
+            'aliases' => array(),
+            'reference' => '7d6f1ebbe45afd8abe262f973287b17bc9d23103',
             'dev_requirement' => false,
         ),
         'psr/container' => array(

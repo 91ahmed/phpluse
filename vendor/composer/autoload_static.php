@@ -25,6 +25,7 @@ class ComposerStaticInitecd42577a7e97a606594dcc139c5e746
             'Psr\\SimpleCache\\' => 16,
             'Psr\\Log\\' => 8,
             'Psr\\Container\\' => 14,
+            'PhpFileUploader\\' => 16,
         ),
         'J' => 
         array (
@@ -77,6 +78,10 @@ class ComposerStaticInitecd42577a7e97a606594dcc139c5e746
         'Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
+        ),
+        'PhpFileUploader\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpuploader/phpfileuploader/src',
         ),
         'Jenssegers\\Blade\\' => 
         array (

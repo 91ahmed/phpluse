@@ -4,9 +4,11 @@
     </button>
     <div>
         <a href="<?php echo e(url('dashboard')); ?>" class="sidebar-logo">
-            <img src="<?php echo e(assets('assets/images/l-light.png')); ?>" alt="site logo" class="light-logo" style="width:140px;margin:auto;">
-            <img src="<?php echo e(assets('assets/images/l-dark.png')); ?>" alt="site logo" class="dark-logo" style="width:140px;margin:auto;">
-            <img src="<?php echo e(assets('assets/images/logo-icon.png')); ?>" alt="site logo" class="logo-icon" style="width:45px;margin:auto;">
+            <img src="<?php echo e(assets('assets/images/l-light.png')); ?>" alt="site logo" class="light-logo" style="width:97px;margin:auto;">
+            <img src="<?php echo e(assets('assets/images/l-dark.png')); ?>" alt="site logo" class="dark-logo" style="width:97px;margin:auto;">
+            <img src="<?php echo e(assets('assets/images/logo-icon.png')); ?>" alt="site logo" class="logo-icon" style="width:20px;margin:auto;"
+                data-light="<?php echo e(assets('assets/images/logo-icon-2.png')); ?>" 
+                data-dark="<?php echo e(assets('assets/images/logo-icon.png')); ?>">
         </a>
     </div>
     <div class="sidebar-menu-area open">

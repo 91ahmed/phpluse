@@ -92,9 +92,10 @@
 						'admin_created_month' => date('m'),
 						'admin_created_year' => date('Y'),
 					])->execute();	
-				} catch (\Exception $e) {
+				} 
+				catch (\Exception $e) 
+				{
 					$response = new Response();
-					//echo $response->status(500)->sendJson(['Error: ' => $e->getMessage()]);
 					echo $response->status(500)->sendJson(['Error: ' => 'Unable to create a new admin account due to a database issue. Possible reasons include - Duplicate entry or Invalid value']);
 					return false;
 				}
