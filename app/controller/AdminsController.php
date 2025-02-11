@@ -1,10 +1,13 @@
 <?php
 	namespace App\Controller;
 
+	use PhpFileUploader\Uploader;
+
 	use Core\Modules\Template\Render;
 	use Core\Modules\Validation\Examine;
 	use Core\Modules\Http\Request;
 	use Core\Modules\Http\Response;
+	use Core\Modules\Sessions\Session;
 
 	use App\Model\Admins;
 	use App\Model\AccountStatus;
@@ -24,7 +27,9 @@
 			$privacy = new AccountPrivacy();
 			$all_privacy = $privacy->all()->fetch();
 
-			Render::view('admins/create', compact('all_admins', 'all_genders', 'all_privacy'));
+			$last_admin = $admins->all()->orderBy(['admin_id'], 'DESC')->fetch_row();
+
+			Render::view('admins/create', compact('all_admins', 'all_genders', 'all_privacy', 'last_admin'));
 		}
 
 		public function createRequest ()
@@ -50,13 +55,14 @@
 			{
 				// Sanitization
 				$id        = intval($admins->select(['COUNT(*) AS id'])->fetch_row()->id)+1;
+				$path      = ROOT.DS.'public'.DS.'assets'.DS.'images'.DS.'users'.DS; // Path for user images photo and cover
 				$firstname = empty($_REQUEST['firstname']) ? null : strtolower(sz_name(Request::post('firstname')));
 				$lastname  = empty($_REQUEST['lastname']) ? null : strtolower(sz_name(Request::post('lastname')));
 				$username  = empty($_REQUEST['firstname']) ? null : strtolower($firstname.rand(0,9).'@'.$id);
 				$email     = empty($_REQUEST['email']) ? null : sz_email(Request::post('email'));
 				$phone     = empty($_REQUEST['phone']) ? null : Request::post('phone');
-				$photo     = gn_char(20);
-				$cover     = gn_char(20);
+				$photo     = null;
+				$cover     = null;
 				$password  = empty($_REQUEST['password']) ? null : password_hash(Request::post('password'), PASSWORD_DEFAULT, ['cost' => 12]);
 				$confirm   = empty($_REQUEST['confirm-password']) ? null : Request::post('confirm-password');
 				$gender    = in_array($_REQUEST['gender'], [1,2]) ? intval(sz_digits(Request::post('gender'))): 1;
@@ -64,6 +70,26 @@
 				$day       = empty($_REQUEST['birth_day']) || $_REQUEST['birth_day'] < 1 || $_REQUEST['birth_day'] > 31 ? null : intval(sz_digits(Request::post('birth_day')));
 				$month     = empty($_REQUEST['birth_month']) || $_REQUEST['birth_month'] < 1 || $_REQUEST['birth_month'] > 12 ? null : intval(sz_digits(Request::post('birth_month')));
 				$year      = empty($_REQUEST['birth_year']) || $_REQUEST['birth_year'] < date('Y')-100 || $_REQUEST['birth_year'] > date('Y') ? null : intval(sz_digits(Request::post('birth_year')));
+
+				if (isset_file('photo')) 
+				{
+					$photo = gn_char(20);
+					$file = new Uploader('photo'); // input name
+					$file->path($path.$id);
+					$file->createFileName($photo); // custom name
+					$file->upload();
+					$photo = $photo.$file->getExtension();
+				}
+
+				if (isset_file('cover')) 
+				{
+					$cover = gn_char(20);
+					$file = new Uploader('cover'); // input name
+					$file->path($path.$id);
+					$file->createFileName($cover); // custom name
+					$file->upload();
+					$cover = $cover.$file->getExtension();
+				}
 
 				try {
 					// Insert into database
@@ -92,11 +118,20 @@
 						'admin_created_month' => date('m'),
 						'admin_created_year' => date('Y'),
 					])->execute();	
+
+					// Set Session
+					Session::set('success', 'Admin data has been successfully inserted into the database!');
 				} 
 				catch (\Exception $e) 
 				{
 					$response = new Response();
-					echo $response->status(500)->sendJson(['Error: ' => 'Unable to create a new admin account due to a database issue. Possible reasons include - Duplicate entry or Invalid value']);
+					echo $response->status(500)->sendJson(['Error: ' => 'Unable to create a new admin account due to a database issue. Possible reasons include - Duplicate entry or Invalid value.']);
+
+					// The existing user images directory has been removed due to the error.
+					if (is_dir($path.$id)) {
+						delete_dir($path.$id);
+					}
+
 					return false;
 				}
 

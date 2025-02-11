@@ -99,6 +99,11 @@
 		return isset($_REQUEST[$value]);
 	}
 
+	function isset_file ($file) 
+	{
+		return isset($_FILES[$file]) && !empty($_FILES[$file]['name']);
+	}
+
 	function delete_dir (string $dirPath) 
 	{
 	    if (! is_dir($dirPath)) {
@@ -110,7 +115,7 @@
 	    $files = glob($dirPath . '*', GLOB_MARK);
 	    foreach ($files as $file) {
 	        if (is_dir($file)) {
-	            deleteDir($file);
+	            delete_dir($file);
 	        } else {
 	            unlink($file);
 	        }

@@ -20,9 +20,47 @@
 	</ul>
 </div>
 
-<div class="content"></div>
+@if(isset($_SESSION['success']))
+<div class="alert alert-info bg-info-100 text-info-600 border-info-100 px-24 py-11 mb-0 fw-semibold text-lg radius-8 mb-24 bg-gradient-primary" role="alert">
+    <div class="d-flex align-items-start justify-content-between text-lg">
+        <div class="d-flex align-items-start gap-2">
+            <iconify-icon icon="mynaui:check-octagon" class="icon text-xl mt-4 flex-shrink-0"></iconify-icon>
+            <div>
+                Success
+                <p class="fw-medium text-info-600 text-sm mt-8">{{ $_SESSION['success'] }}</p>
+            </div>
+        </div>
+        <button class="remove-button text-info-600 text-xxl line-height-1">
+            <iconify-icon icon="iconamoon:sign-times-light" class="icon"></iconify-icon>
+        </button>
+    </div>
+</div>
 
-<form action="<?= url('dashboard/admin/create/request') ?>" method="POST" style="width: 100%;" class="form-request" enctype="multipart/form-data">
+<div class="card radius-12 overflow-hidden h-100 d-flex align-items-center flex-nowrap flex-row mb-24 bg-gradient-success" style="padding-left: 10px; padding-right: 10px;font-size: 15px;">
+    @if (empty($last_admin->admin_photo))
+    	<div class="last-avatar" style="background-image: url(<?= assets('assets/images/avatar/default-photo.png') ?>)"></div>
+    @else
+    	<div class="last-avatar" style="background-image: url(<?= assets('assets/images/users').'/'.$last_admin->admin_id.'/'.$last_admin->admin_photo ?>)"></div>
+    @endif
+    <div class="card-body p-16 flex-grow-1">
+    	<h5 class="card-title text-lg text-primary-light mb-6" style="font-size: 16px !important;">The latest admin has been successfully added to the database!</h5>
+        <p class="card-text text-neutral-600 mb-16">
+        	{{ ucwords($last_admin->admin_first_name.' '.$last_admin->admin_last_name) }}
+        	<br>
+        	{{ $last_admin->admin_email }}
+        </p>
+        <a href="{{ url('dashboard/admin/preview').'/'.$last_admin->public_code }}" class="btn text-primary-600 hover-text-primary p-0 d-inline-flex align-items-center gap-2">
+            Show Details <iconify-icon icon="iconamoon:arrow-right-2" class="text-xl"></iconify-icon>
+        </a>
+    </div>
+</div>
+@endif
+
+@php
+	unset($_SESSION['success']);
+@endphp
+
+<form action="{{ url('dashboard/admin/create/request') }}" method="POST" style="width: 100%;" class="form-request" data-target="<?= url('dashboard/admin/create') ?>" enctype="multipart/form-data">
 	<div class="row gy-4">
 		<div class="col-md-6">
 		    <div class="card mb-3">
