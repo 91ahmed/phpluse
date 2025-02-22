@@ -14,7 +14,7 @@
 	use App\Model\AccountPrivacy;
 	use App\Model\Genders;
 
-	class AdminsController 
+	class AdminsController
 	{
 		public function create ()
 		{
