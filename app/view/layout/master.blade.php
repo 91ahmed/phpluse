@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>@yield('title')</title>
-		<link rel="icon" type="image/png" href="{{ assets('assets/images/icon.ico') }}" sizes="16x16">
+		<link rel="icon" type="image/png" href="{{ assets('assets/images/icon.png') }}" sizes="16x16">
 		<!-- remix icon font css  -->
 		<link rel="stylesheet" href="{{ assets('assets/css/remixicon.css') }}">
 		<!-- BootStrap css -->
@@ -27,8 +27,8 @@
 		<link rel="stylesheet" href="{{ assets('assets/css/lib/magnific-popup.css') }}">
 		<!-- Slick Slider css -->
 		<link rel="stylesheet" href="{{ assets('assets/css/lib/slick.css') }}">
-		<!-- Notyf -->
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+		<!-- Nostfly -->
+		<link rel="stylesheet" href="{{ assets('assets/css/nostfly.css') }}">
 		<!-- main css -->
 		<link rel="stylesheet" href="{{ assets('assets/css/style.css') }}">
 	</head>
@@ -78,8 +78,8 @@
 		<!-- main js -->
 		<script src="{{ assets('assets/js/app.js') }}"></script>
 		<script src="{{ assets('assets/js/homeTwoChart.js') }}"></script>
-		<!-- Notyf -->
-		<script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+		<!-- Nostfly -->
+		<script src="{{ assets('assets/js/nostfly.js') }}"></script>
 		<script src="{{ assets('assets/js/main.js') }}"></script>
 	</body>
 </html>

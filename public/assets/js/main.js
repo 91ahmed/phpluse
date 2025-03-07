@@ -35,15 +35,12 @@ $(document).ready(function(){
                     {
                         for (data in response) 
                         {
-                            let notyf = new Notyf({
-                                duration: 5000,
-                                position: {
-                                    x: 'center',
-                                    y: 'bottom',
-                                }
+                            new Nostfly ({
+                                style: 'success',
+                                content: data.replace('_', ' ')+' '+response[data],
+                                delay: 5000
                             })
 
-                            notyf.success(data.replace('_', ' ')+' '+response[data])
                             break
                         }
                     }
@@ -53,15 +50,13 @@ $(document).ready(function(){
 
                     for (data in response.responseJSON) 
                     {
-                        let notyf = new Notyf({
-                            duration: 5000,
-                            position: {
-                                x: 'center',
-                                y: 'bottom',
-                            }
+                        new Nostfly ({
+                            style: 'error',
+                            position: 'bottom-right',
+                            content: data.replace('_', ' ')+' '+response.responseJSON[data],
+                            delay: 5000
                         })
 
-                        notyf.error(data.replace('_', ' ')+' '+response.responseJSON[data])
                         break
                     }
                 }
